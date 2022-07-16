@@ -220,4 +220,96 @@ console.log('lista elementos padre de las estaciones: ', estacioness.parentEleme
 
 ////////////////
 
+// desde aca manejo de selectores de css desde JS
 
+document.querySelector(".item").style.color = "blue";
+document.querySelector(".item").style.fontSize = "2rem";
+const itemCSS = document.querySelector(".item");
+console.log(itemCSS.style);
+// muestra los estilos
+
+console.log(itemCSS.getAttribute("style"));
+// metodo que permite acceder al contenido del atributo
+// style de una etiqueta de html. Devuelve un array si 
+// hay varias propiedades
+
+const enlace = document.querySelector("#estaciones");
+console.log(getComputedStyle(enlace).getPropertyValue("color"));
+// obtengo los estilos de estaciones . muestra lo que hay dentro de la propiedad
+enlace.style.setProperty("text-decoration", "none");
+
+
+const enlace2 = document.querySelector("#estaciones");
+enlace2.style.setProperty("color", "aquamarine");
+enlace2.style.setProperty("background-color", "red");
+// enlace02.style.setProperty("background-color", "red");
+// enlace02.style.setPproperty("text-decoration", "none");
+// enlace02.style.setProperty("text-decoration", "none");
+console.log(enlace2);
+
+const enlaceS = document.querySelector("#titulo");
+enlaceS.style.backgroundColor = "pink";
+enlaceS.style.color="black";
+enlaceS.style.padding="20px";
+
+
+///// algunos ejemplos
+const $enlace = document.querySelector(".enlace");
+console.log($enlace.style);
+
+// de html  <a href="#" class="enlace"></a>
+// no hay estilos que mostrar
+
+
+////////// algunos ejemplos 2
+const $enlace = document.querySelector(".enlace");
+console.log($enlace.getAttribute("style"));
+
+// de html  <a href="#" class="enlace" style="color: red"></a>
+// devuelve:      color: red
+// muestra el atributo de style
+
+
+////////// ejemplo 3 que accede al valor de una propiedad CSS
+
+const $enlace = document.querySelector(".enlace");
+
+console.log('todo lo que puedo hacer con getComputedStyle: ',getComputedStyle($enlace));
+console.log('Obtengo el color en rgb del [.enlace]: ',getComputedStyle($enlace).getPropertyValue("color"));
+
+// de html <a href="#" class="enlace" style="color: red"></a>
+
+/////////// ejemplo 4 que setea un nuevo estilo
+
+const enlace = document.querySelector(".enlace");
+enlace.style.setProperty("background-color", "rgb(255,255,0)");
+
+// modifico un estilo css en un objeto de la clase enlace (el primero)
+// ojo con style que no lo muestra de manera automática, puede que sea una 
+// version vieja del ES6
+
+// de html <a href="#" class="enlace">Esto es un enlace</a>
+
+////////////// ejemplo 5 que setea un nuevo estilo
+// agregar un valor CSS por medio de la propiedad implícita
+// del objeto CSSStyleDeclaration. OJO CON STYLE
+
+const $enlace = document.querySelector(".enlace");
+$enlace.style.backgroundColor="pink";
+$enlace.style.color="blue";
+$enlace.style.padding="20px";
+
+// color=blue y padding de 20px
+
+
+////////////ejemplo 6 se aplica a todo el html
+
+const $html = document.documentElement, $body = document.body;
+
+let varColorOscuro = getComputedStyle($html).getPropertyValue("--color-oscuro"),
+    varColorAmarillo = getComputedStyle($html).getPropertyValue("--color-amarillo");
+
+$body.style.backgroundColor = varColorOscuro;
+$body.style.color = varColorAmarillo;
+
+///////////
