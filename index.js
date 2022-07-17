@@ -69,3 +69,4 @@ btn.addEventListener('click', () => {
     else changeTheme(darkTheme, sun); // is dark False
 })
 
+// codigo mas limpio y escalable!
